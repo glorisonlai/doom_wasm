@@ -1,11 +1,11 @@
-import { Flex } from "@/components/flex";
+import Inner from "./inner";
 import "./globals.css";
 import type { AppProps } from "@/lib/types";
 
 export default function Classic (props: AppProps){
   return (
     <div className="p-4">
-      <Flex {...props} />
+      <Inner />
     </div>
   )
 }
