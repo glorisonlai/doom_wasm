@@ -347,6 +347,7 @@ choosePet = (next) => {
 };
 
 startMultiplayer = () => {
+    console.log("startMultiplayer")
     display(["buttons", "text"], "none");
     fetch(`${base}/api/newroom`)
         .then((response) => response.json())
@@ -404,7 +405,9 @@ if (hasWebAssembly()) {
     var Module = {
         onRuntimeInitialized: () => {
             room = window.location.pathname.slice(1);
+            room = ".";
             if (room.match(/[a-z0-9]+-[a-z0-9]+/g)) {
+                console.log("multiplayer")
                 fetch(`${base}/api/room/${room}`)
                     .then((response) => response.json())
                     .then((data) => {
@@ -433,6 +436,7 @@ if (hasWebAssembly()) {
                         }
                     });
             } else {
+                console.log("solo")
                 $("solo").className = "btn primary";
                 $("multiplayer").className = "btn secondary";
                 onClick("solo", startSolo);
@@ -544,7 +548,8 @@ if (hasWebAssembly()) {
         display(["canvas"], "none");
         virtualGamepads();
 
-        if (window.location.pathname.slice(1).match(/[a-z0-9]+-[a-z0-9]+/g)) {
+        const blah = "."
+        if (blah.match(/[a-z0-9]+-[a-z0-9]+/g)) {
             write('<h1 class="vspace">Validating room...</h1>');
         } else {
             display(["buttons"]);

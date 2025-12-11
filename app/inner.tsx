@@ -4,7 +4,7 @@ export default function Inner() {
       src="WebSockets Wasm Doom.html"
       style={{
         width: '100%',
-        height: '100vh',
+        height: '600px',
         border: 'none'
       }}
       title="DOOM Game"
